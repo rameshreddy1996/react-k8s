@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dept-dev
+  namespace: env-dev
+spec:
+  selector:
+    matchLabels:
+      app: dept-dev
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: dept-dev
+    spec:
+      containers:
+      - name: dept-dev
+        image: -------------------image url ---------------
+        resources:
+          requests:
+            memory: "130Mi"
+            cpu: 100m
+          limits:
+            memory: "260Mi"
+            cpu: 1
+        ports:
+          - containerPort: 3000
